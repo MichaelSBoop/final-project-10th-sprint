@@ -1,12 +1,12 @@
 #!/bin/bash
-
+PRAC="Практическое задание"
 # создаём каталог task с вложенными директориями
 # task
 #   dir1
 #   dir2
 #   dir3
 #       dir4
-mkdir task && mkdir task/dir1 && mkdir task/dir2 && mkdir task/dir3 && mkdir task/dir3/dir4
+mkdir -p task task/dir1 task/dir2 task/dir3 task/dir3/dir4
 # изменяем текущую директорию на task
 cd task/
 # создаём пустой файл task/dir2/empty
@@ -33,12 +33,12 @@ NAME='Всем студентам'
 # вывод скрипта должен дописаться в файл task/dir1/summary.txt
 dir2/hello.sh "$NAME" >> dir1/summary.txt
 # перемещаем с переименованием task/dir1/summary.txt в task/Практическое задание
-mv dir1/summary.txt "Практическое задание"
+mv dir1/summary.txt "$PRAC"
 # выводим на консоль содержимое файла task/Практическое задание
-cat "Практическое задание"
+cat "$PRAC"
 # ищем в файле "Практическое задание" строки, которые содержат слово "dir"
 # и затем отсортировываем их
-grep "dir" "Практическое задание" | sort 
+grep "dir" "$PRAC" | sort 
 # меняем текущую директорию на родительскую для task
 cd ..
 # удаляем директорию task со всем содержимым
